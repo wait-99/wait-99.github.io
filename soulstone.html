@@ -594,8 +594,12 @@ function cost(){
         if(parseInt(arr[i].value))
             tot3 += parseInt(arr[i].value);
 	}
+	
+	const numberWithCommas = (x) => {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
 
-	document.getElementById('total').value = ((toInferior*tot1 + toCommon*tot2 + toRefined*tot3 + toDzenai)-(fromInferior*tot1 + fromCommon*tot2 + fromRefined*tot3 + fromDzenai));
+	document.getElementById('total').value = numberWithCommas((toInferior*tot1 + toCommon*tot2 + toRefined*tot3 + toDzenai)-(fromInferior*tot1 + fromCommon*tot2 + fromRefined*tot3 + fromDzenai));
 	
 }
 
