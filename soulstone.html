@@ -1,0 +1,608 @@
+
+<html>
+<head>
+
+<title>Soulstone Cost Calc</title>
+
+<link rel="icon" 
+      type="image/png" 
+      href="https://i.imgur.com/7mV5hyQ.png">
+
+</head>
+<body>
+
+<div align=center style="padding-left:8px;">
+
+
+<div align=center style="width:400px; padding-bottom:10px; padding-top:0px;">
+
+<h1>
+Soul Worker:
+<br />
+Soulstone Cost Calculator
+</h1>
+</div>
+Enter the costs in dz of each type of fragment. 
+<br />
+Click outside of any table to update numbers.
+<br />
+<br />
+Created by: Natty @ Tenebris
+<br />
+Discord: Natt#7777
+</div>
+
+
+
+<div style="padding-top:35px">
+
+<table align=center style="text-align:center; border: 1px solid black; width: 300 px;margin-bottom:15px; padding:8px">
+<tr>
+<td>
+<strong>From Level:</strong>
+</td>
+<td>
+<select onblur="cost()" id="fromlevel">
+<option>Select</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<hr/>
+</td>
+</tr>
+<tr>
+<td>
+<strong>To Level:</strong>
+</td>
+<td>
+<select onblur="cost()" id="tolevel">
+<option>Select</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+</td>
+
+</table>
+
+<table align=center style="text-align: center; border: 1px solid black; width: 400px; padding:8px">
+<tr>
+<td>
+<strong>Fragment Type</strong>
+</td>
+<td>
+<strong>Fragment Cost</strong>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<hr/>
+</td>
+</tr>
+<tr>
+<td width=35%>
+Inferior
+</td>
+<td>
+<input onblur="cost()" placeholder="0" type="text" name="costI" id="cost1" style="width:100%;" />
+</td>
+</tr>
+<tr>
+<td style="color:green;">
+Common
+</td>
+<td>
+<input onblur="cost()" placeholder="0" type="text" name="costC" id="cost2" style="width:100%;" />
+</td>
+</tr>
+<td style="color:blue;">
+Refined
+</td>
+<td>
+<input onblur="cost()" placeholder="0" type="text" name="costR" id="cost3" style="width:100%;" />
+</td>
+</tr>
+<tr>
+<td>
+</table>
+
+
+
+</div>
+
+<div style="padding-top:35px; padding-bottom: 35px">
+
+<table align=center style="text-align: center; border: 1px solid black; width:400px; padding:8px">
+<tr>
+<td>
+<strong>Total Cost:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="total" id="total" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<h3 style="text-align: center">Soulstone Stats and Costs</h3>
+
+<div style="display:flex; justify-content:center;margin">
+
+<table style="text-align: center; border: 1px solid black ; width:100px; margin-right:15px; padding:8px">
+<tr>
+<td>
+<strong>Level</strong>
+</td>
+<td>
+<strong>Attack</strong>
+</td>
+</tr>
+<td colspan=2>
+<hr/>
+</td>
+<tr>
+<td>
+1
+</td>
+<td>
+100
+</td>
+</tr><tr>
+<td>
+2
+</td>
+<td>
+200
+</td>
+</tr><tr>
+<td>
+3
+</td>
+<td>
+310
+</td>
+</tr><tr>
+<td>
+4
+</td>
+<td>
+440
+</td>
+</tr><tr>
+<td>
+5
+</td>
+<td>
+600
+</td>
+</tr><tr>
+<td>
+6
+</td>
+<td>
+800
+</td>
+</tr><tr>
+<td>
+7
+</td>
+<td>
+1050
+</td>
+</tr><tr>
+<td>
+8
+</td>
+<td>
+1360
+</td>
+</tr><tr>
+<td>
+9
+</td>
+<td>
+1740
+</td>
+</tr>
+
+
+</table>
+
+<table style="text-align: center; border: 1px solid black; width:600px; padding:8px">
+<tr>
+<td>
+<strong>Level Start</strong>
+</td>
+<td>
+<strong>Level End</strong>
+</td>
+<td>
+<strong>Atk Gain</strong>
+</td>
+<td>
+<strong>Inferior</strong>
+</td>
+<td>
+<strong>Common</strong>
+</td>
+<td>
+<strong>Refined</strong>
+</td>
+<td>
+<strong>Dzenai</strong>
+</td>
+</tr>
+<td colspan=7>
+<hr/>
+</td>
+<tr>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+100
+</td>
+<td>
+24
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+160,000
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+3
+</td>
+<td>
+110
+</td>
+<td>
+40
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+320,000
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+4
+</td>
+<td>
+130
+</td>
+<td>
+40
+</td>
+<td>
+3
+</td>
+<td>
+1
+</td>
+<td>
+560,000
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+5
+</td>
+<td>
+160
+</td>
+<td>
+40
+</td>
+<td>
+4
+</td>
+<td>
+2
+</td>
+<td>
+800,000
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+6
+</td>
+<td>
+200
+</td>
+<td>
+80
+</td>
+<td>
+7
+</td>
+<td>
+3
+</td>
+<td>
+1,120,000
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+7
+</td>
+<td>
+250
+</td>
+<td>
+80
+</td>
+<td>
+8
+</td>
+<td>
+4
+</td>
+<td>
+1,600,000
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+8
+</td>
+<td>
+310
+</td>
+<td>
+160
+</td>
+<td>
+16
+</td>
+<td>
+8
+</td>
+<td>
+2,160,000
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+9
+</td>
+<td>
+380
+</td>
+<td>
+240
+</td>
+<td>
+24
+</td>
+<td>
+16
+</td>
+<td>
+2,800,000
+</td>
+</tr>
+<tr>
+<td>
+<strong>Total</strong>
+</td>
+<td>
+
+</td>
+<td>
+
+</td>
+<td>
+<strong>704</strong>
+</td>
+<td>
+<strong>63</strong>
+</td>
+<td>
+<strong>34</strong>
+</td>
+<td>
+<strong>9,520,000</strong>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+function cost(){
+	
+	var fromInferior = 0;
+	var fromCommon = 0;
+	var fromRefined = 0;
+	var fromDzenai = 0;
+	
+	var toInferior = 0;
+	var toCommon = 0;
+	var toRefined = 0;
+	var toDzenai = 0;
+	
+	switch(document.getElementById('fromlevel').value) {
+		case "1": 
+			break;
+		case "2":
+			fromInferior = 24;
+			fromDzenai = 160000;
+			break;
+		case "3":
+			fromInferior = 64;
+			fromCommon = 1;
+			fromDzenai = 480000;
+			break;
+		case "4":
+			fromInferior = 104;
+			fromCommon = 4;
+			fromRefined = 1;
+			fromDzenai = 1040000;
+			break;
+		case "5":
+			fromInferior = 144;
+			fromCommon = 8;
+			fromRefined = 3;
+			fromDzenai = 1840000;
+			break;
+		case "6":
+			fromInferior = 224;
+			fromCommon = 15;
+			fromRefined = 6;
+			fromDzenai = 2960000;
+			break;
+		case "7":
+			fromInferior = 304;
+			fromCommon = 23;
+			fromRefined = 10;
+			fromDzenai = 4560000;
+			break;
+		case "8":
+			fromInferior = 464;
+			fromCommon = 39;
+			fromRefined = 18;
+			fromDzenai = 6720000;
+			break;
+			
+	}
+	
+	switch(document.getElementById('tolevel').value) {
+		case "2":
+			toInferior = 24;
+			toDzenai = 160000;
+			break;
+		case "3":
+			toInferior = 64;
+			toCommon = 1;
+			toDzenai = 480000;
+			break;
+		case "4":
+			toInferior = 104;
+			toCommon = 4;
+			toRefined = 1;
+			toDzenai = 1040000;
+			break;
+		case "5":
+			toInferior = 144;
+			toCommon = 8;
+			toRefined = 3;
+			toDzenai = 1840000;
+			break;
+		case "6":
+			toInferior = 224;
+			toCommon = 15;
+			toRefined = 6;
+			toDzenai = 2960000;
+			break;
+		case "7":
+			toInferior = 304;
+			toCommon = 23;
+			toRefined = 10;
+			toDzenai = 4560000;
+			break;
+		case "8":
+			toInferior = 464;
+			toCommon = 39;
+			toRefined = 18;
+			toDzenai = 6720000;
+			break;
+		case "9":
+			toInferior = 704;
+			toCommon = 63;
+			toRefined = 34;
+			toDzenai = 9520000;
+			break;			
+	}
+	
+	
+	
+	var tot1 = 0|0;
+	var tot2 = 0|0;
+	var tot3 = 0|0;
+
+    var arr = document.getElementsByName('costI');
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot1 += parseInt(arr[i].value);
+	}
+	var arr = document.getElementsByName('costC');
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot2 += parseInt(arr[i].value);
+	}
+	var arr = document.getElementsByName('costR');
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot3 += parseInt(arr[i].value);
+	}
+
+	document.getElementById('total').value = ((toInferior*tot1 + toCommon*tot2 + toRefined*tot3 + toDzenai)-(fromInferior*tot1 + fromCommon*tot2 + fromRefined*tot3 + fromDzenai));
+	
+}
+
+
+
+</script>
+
+
+</body>
+</html>
