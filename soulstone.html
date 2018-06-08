@@ -132,13 +132,18 @@ Refined
 <td>
 <strong>Total Cost:</strong>
 </td>
-<td>
+<td style="padding-top: 1px">
 <input type="text" placeholder="0" name="total" id="total" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
 </td>
+<tr>
+<td colspan=2>
+<hr />
+</td>
+</tr>
 </tr>
 <tr>
 <td>
-<strong>Inferiors Needed:</strong>
+Inferiors Needed:
 </td>
 <td>
 <input type="text" placeholder="0" name="infNeed" id="infNeed" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
@@ -146,7 +151,7 @@ Refined
 </tr>
 <tr>
 <td>
-<strong>Inferiors Cost:</strong>
+Inferiors Cost:
 </td>
 <td>
 <input type="text" placeholder="0" name="infCost" id="infCost" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
@@ -154,7 +159,7 @@ Refined
 </tr>
 <tr>
 <td>
-<strong>Commons Needed:</strong>
+Commons Needed:
 </td>
 <td>
 <input type="text" placeholder="0" name="comNeed" id="comNeed" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
@@ -162,7 +167,7 @@ Refined
 </tr>
 <tr>
 <td>
-<strong>Commons Needed:</strong>
+Commons Cost:
 </td>
 <td>
 <input type="text" placeholder="0" name="comCost" id="comCost" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
@@ -170,7 +175,7 @@ Refined
 </tr>
 <tr>
 <td>
-<strong>Refineds Needed:</strong>
+Refineds Needed:
 </td>
 <td>
 <input type="text" placeholder="0" name="refNeed" id="refNeed" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
@@ -178,7 +183,7 @@ Refined
 </tr>
 <tr>
 <td>
-<strong>Refineds Needed:</strong>
+Refineds Cost:
 </td>
 <td>
 <input type="text" placeholder="0" name="refCost" id="refCost" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
@@ -201,8 +206,11 @@ Refined
 <td>
 <strong>Attack</strong>
 </td>
+<td>
+<strong>Defence</strong>
+</td>
 </tr>
-<td colspan=2>
+<td colspan=3>
 <hr/>
 </td>
 <tr>
@@ -212,12 +220,18 @@ Refined
 <td>
 100
 </td>
+<td>
+50
+</td>
 </tr><tr>
 <td>
 2
 </td>
 <td>
 200
+</td>
+<td>
+100
 </td>
 </tr><tr>
 <td>
@@ -226,12 +240,18 @@ Refined
 <td>
 310
 </td>
+<td>
+155
+</td>
 </tr><tr>
 <td>
 4
 </td>
 <td>
 440
+</td>
+<td>
+220
 </td>
 </tr><tr>
 <td>
@@ -240,12 +260,18 @@ Refined
 <td>
 600
 </td>
+<td>
+300
+</td>
 </tr><tr>
 <td>
 6
 </td>
 <td>
 800
+</td>
+<td>
+400
 </td>
 </tr><tr>
 <td>
@@ -254,6 +280,9 @@ Refined
 <td>
 1050
 </td>
+<td>
+525
+</td>
 </tr><tr>
 <td>
 8
@@ -261,12 +290,18 @@ Refined
 <td>
 1360
 </td>
+<td>
+680
+</td>
 </tr><tr>
 <td>
 9
 </td>
 <td>
 1740
+</td>
+<td>
+870
 </td>
 </tr>
 
@@ -626,10 +661,6 @@ function cost(){
 	var tot1 = 0|0;
 	var tot2 = 0|0;
 	var tot3 = 0|0;
-	
-	var costInf = document.getElementsByName('costI');
-	var costCom = document.getElementsByName('costC');
-	var costRef = document.getElementsByName('costR');
 
     var arr = document.getElementsByName('costI');
     for(var i=0;i<arr.length;i++){
@@ -652,12 +683,12 @@ function cost(){
 	}
 
 	document.getElementById('total').value = numberWithCommas((toInferior*tot1 + toCommon*tot2 + toRefined*tot3 + toDzenai)-(fromInferior*tot1 + fromCommon*tot2 + fromRefined*tot3 + fromDzenai));
-	document.getElementById('infNeed').value = toInferior*tot1 - fromInferior*tot1;
-	document.getElementById('infCost').value = (toInferior*tot1 - fromInferior*tot1)*costInf;
-	document.getElementById('comNeed').value = toCommon*tot2 - fromCommon*tot2;
-	document.getElementById('comCost').value = (toCommon*tot2 - fromCommon*tot2)*costCom;
-	document.getElementById('refNeed').value = toRefined*tot3 - fromRefined*tot3;
-	document.getElementById('refCost').value = (toRefined*tot3 - fromRefined*tot3)*costRef;
+	document.getElementById('infNeed').value = toInferior - fromInferior;
+	document.getElementById('infCost').value = numberWithCommas((toInferior - fromInferior)*tot1);
+	document.getElementById('comNeed').value = toCommon - fromCommon;
+	document.getElementById('comCost').value = numberWithCommas((toCommon - fromCommon)*tot2);
+	document.getElementById('refNeed').value = toRefined - fromRefined;
+	document.getElementById('refCost').value = numberWithCommas((toRefined - fromRefined)*tot3);
 }
 
 
