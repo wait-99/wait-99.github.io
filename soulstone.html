@@ -135,6 +135,44 @@ Refined
 <td>
 <input type="text" placeholder="0" name="total" id="total" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
 </td>
+
+<td>
+<strong>Inferiors Needed:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="infNeed" id="infNeed" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
+<td>
+<strong>Inferiors Cost:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="infCost" id="infCost" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
+
+<td>
+<strong>Commons Needed:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="comNeed" id="comNeed" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
+<td>
+<strong>Commons Needed:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="comCost" id="comCost" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
+
+<td>
+<strong>Refineds Needed:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="refNeed" id="refNeed" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
+<strong>Refineds Needed:</strong>
+</td>
+<td>
+<input type="text" placeholder="0" name="refCost" id="refCost" style="width:100%; padding-left:5px; border:none; font-weight:bold; text-align:center;" readonly/>
+</td>
 </tr>
 
 </table>
@@ -600,7 +638,12 @@ function cost(){
 	}
 
 	document.getElementById('total').value = numberWithCommas((toInferior*tot1 + toCommon*tot2 + toRefined*tot3 + toDzenai)-(fromInferior*tot1 + fromCommon*tot2 + fromRefined*tot3 + fromDzenai));
-	
+	document.getElementById('infNeed').value = toInferior*tot1 - fromInferior*tot1;
+	document.getElementById('infCost').value = (toInferior*tot1 - fromInferior*tot1)*document.getElementsByName('costI');
+	document.getElementById('comNeed').value = toCommon*tot2 - fromCommon*tot2;
+	document.getElementById('comCost').value = (toCommon*tot2 - fromCommon*tot2)*document.getElementsByName('costC');
+	document.getElementById('refNeed').value = toRefined*tot3 - fromRefined*tot3;
+	document.getElementById('refCost').value = (toRefined*tot3 - fromRefined*tot3)*document.getElementsByName('costR');
 }
 
 
