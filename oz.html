@@ -76,32 +76,7 @@ BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
 <p style="font-size:8px">Music © Copyright Wizet, Nexon</p>
 </div>
 
-<audio id="music1" src="music/Aquarium.mp3" type="audio/mp3" preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music2" src="music/Ariant.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music3" src="music/Edelstein.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music4" src="music/El Nath.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music5" src="music/Ellinia.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music6" src="music/Elluel.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music7" src="music/Ereve.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music8" src="music/Fox Point Village.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music9" src="music/Heliseum Reclamation HQ.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music10" src="music/Henesys.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music11" src="music/Herb Town.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music12" src="music/Kerning City.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music13" src="music/Korean Folk Town.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music14" src="music/Leafre.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music15" src="music/Lith Harbor.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music16" src="music/Ludibrium.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music17" src="music/Lumiere.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music18" src="music/Magatia.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music19" src="music/Mu Lung.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music20" src="music/Nautilus.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music21" src="music/Omega Sector.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music22" src="music/Orbis.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music23" src="music/Pantheon.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music24" src="music/Perion.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music25" src="music/Rien.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
-<audio id="music26" src="music/Sleepywood.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<div style="display:none" id="musicBox"></div>
 
 <script type="text/javascript">
 
@@ -145,11 +120,6 @@ function rightOrWrong(result){
 
 function onClick() {
 	var result = 0;
-	var sounds = document.getElementsByTagName('audio');
-    for(i=0; i<sounds.length; i++){
-		sounds[i].pause()
-		sounds[i].currentTime=0
-	};
 	input = document.forms["Form"]["answer"].value;
 	if(document.forms["Form"]["answer"] == null || document.forms["Form"]["answer"] == "" || input == null || input == ""){
 		result = 0	
@@ -172,11 +142,8 @@ musicName  =	['Aquarium','Ariant','Edelstein','El Nath','Ellinia','Elluel','Erev
 				'Herb Town','Kerning City','Korean Folk Town','Leafre','Lith Harbor','Ludibrium','Lumiere','Magatia','Mu Lung','Nautilus',
 				'Omega Sector','Orbis','Pantheon','Perion','Rien','Sleepywood'];
 function randomBGM() {	
-	var sounds = document.getElementsByTagName('audio');
-    for(i=0; i<sounds.length; i++){
-		sounds[i].pause()
-		sounds[i].currentTime=0
-	};
+	
+	
 	var index = Math.floor(Math.random() * 1000) % musicArray.length;
 	while (index == lastIndex){
 		index = Math.floor(Math.random() * 1000) % musicArray.length;
@@ -184,16 +151,94 @@ function randomBGM() {
 	var play = musicArray[index];
 	musicID = index;
 	lastIndex = index;
-	var audioElement = document.getElementById(play);
-	audioElement.play();
+	
+	switch(index) {
+		case 0: //Aquarium
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/embed/qtw0sIBLjrw?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 1: //Ariant
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=w1RgDSoOajw?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 2: //Edelstein
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=Iayh6shDnwQ?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 3: //El Nath
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=X6X7U5V9Obk?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 4: //Ellinia
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=gfgBDs8z6WE?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 5: //Elluel
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=5gxVQPSbkJw?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 6: //Ereve
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=3r9s43TG9yA?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 7: //Fox Point Village
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=lorm88ckSuM?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 8: //Heliseum Reclamation HQ
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=CuoeZkWgDjk?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 9: //Henesys
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=s2_MAplvHeQ?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 10: //Herb Town
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=59oze7IkQ10?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 11: //Kerning City
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=uv8QObpL2EY?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 12: //Korean Folk Town
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=KK_IjvtszTA?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 13: //Leafre
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=theIdIhZzVE?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 14: //Lith Harbor
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=F6LIFBVhObQ?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 15: //Ludibrium
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=49AZqVhXVeU?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 16: //Lumiere
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=ZpVpjZJyDJA?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 17: //Magatia
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=5FDFLwPw0bU?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 18: //Mu Lung
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=2VMCpGe9MGc?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 19: //Nautilus
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=iZaVKkfuD6s?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 20: //Omega Sector
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=LxQt8EVhBOs?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 21: //Orbis
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=DThWMbPZXy8?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 22: //Pantheon
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=ZYeUnqsCnxg?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 23: //Perion
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=9lwOsX763N0?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 24: //Rien
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=YDfIfL_Fxec?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		case 25: //Sleepywood
+			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=tWCWIhA3XQw?autoplay=1 allow='autoplay'></iframe>" 
+			break;
+		default:
+			document.getElementById("musicBox").innerHTML = "" 
+			break;
+	}
 }
 
 function stop() {
-	var sounds = document.getElementsByTagName('audio');
-    for(i=0; i<sounds.length; i++){
-		sounds[i].pause()
-		sounds[i].currentTime=0
-	};
+	document.getElementById("musicBox").innerHTML = ""
 }
 
 </script>
