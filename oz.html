@@ -177,7 +177,7 @@ function randomBGM() {
 		sounds[i].pause()
 		sounds[i].currentTime=0
 	};
-	var index = 0;
+	var index = Math.floor(Math.random() * 1000) % musicArray.length;
 	while (index == lastIndex){
 		index = Math.floor(Math.random() * 1000) % musicArray.length;
 	}
