@@ -107,6 +107,7 @@ BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
 
 var musicID = -1;
 var input = document.forms["Form"]["answer"].value;
+var lastIndex = -1;
 
 function rightOrWrong(result){
 	var correct = document.getElementById("correctAnswer");
@@ -176,9 +177,13 @@ function randomBGM() {
 		sounds[i].pause()
 		sounds[i].currentTime=0
 	};
-	var index = Math.floor(Math.random() * 1000) % musicArray.length;
+	var index = 0;
+	while (index == lastIndex){
+		index = Math.floor(Math.random() * 1000) % musicArray.length;
+	}
 	var play = musicArray[index];
 	musicID = index;
+	lastIndex = index;
 	var audioElement = document.getElementById(play);
 	audioElement.play();
 }
