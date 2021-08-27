@@ -1,0 +1,197 @@
+
+<html>
+<head>
+
+<title>Oz Floor 24</title>
+
+<link rel="icon" 
+      type="image/png" 
+      href="https://i.imgur.com/Wgd1GEa.png">
+
+</head>
+<body>
+
+<div align=center style="padding-left:8px;">
+
+
+<div align=center style="width:400px; padding-bottom:10px; padding-top:0px;">
+
+<h1>
+Maplestory Tower of Oz:
+<br />
+Floor 24 Music Test
+</h1>
+</div>
+Click the play button to play a random BGM.  
+<br />
+Type in the name and see if you get it right! Remember, <b>Capitalization Matters!</b>
+<br />
+<br />
+Created by: Natt#7777 (Discord)
+<br />
+<br />
+
+
+</div>
+
+<div style="padding-top:35px">
+
+<table align=center style="text-align:center; border: 1px solid black; width: 300 px;margin-bottom:15px; padding:8px">
+<tr>
+<td>
+What's the name of the BGM?
+</td>
+</tr>
+<tr>
+<td>
+<button onclick="randomBGM()">Play!</button>
+<button onclick="stop()">Stop!</button>
+<hr/>
+</td>
+</tr>
+<tr>
+<td>
+<form name="Form" action="#" onsubmit="onClick();return false">
+BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
+<input type=submit />
+</form>
+<hr />
+</td>
+</tr>
+<tr>
+<td>
+<h2 style="color:green;display:none" id="correctAnswer">Correct!</h3>
+<h2 style="color:red;display:none" id="wrongAnswer">Wrong!<br />5 mins gone!<br /></h3>
+<h3 style="display:none" id="answerWas">The BGM was:</h3>
+<h3 style="display:none" id="realAnswer"></h3>
+<p style="display:none" id="youEntered">You Entered:</p>
+<p style="display:none" id="enter"></p>
+</td>
+</tr>
+
+</div>
+</table>
+<br /><br /><br /><br /><br />
+<div align=center style="padding-left:8px;">
+<p style="font-size:8px">Music © Copyright Wizet, Nexon</p>
+</div>
+
+<audio id="music1" src="music/Aquarium.mp3" type="audio/mp3" preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music2" src="music/Ariant.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music3" src="music/Edelstein.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music4" src="music/El Nath.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music5" src="music/Ellinia.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music6" src="music/Elluel.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music7" src="music/Ereve.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music8" src="music/Fox Point Village.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music9" src="music/Heliseum Reclamation HQ.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music10" src="music/Henesys.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music11" src="music/Herb Town.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music12" src="music/Kerning City.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music13" src="music/Korean Folk Town.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music14" src="music/Leafre.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music15" src="music/Lith Harbor.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music16" src="music/Ludibrium.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music17" src="music/Lumiere.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music18" src="music/Magatia.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music19" src="music/Mu Lung.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music20" src="music/Nautilus.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music21" src="music/Omega Sector.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music22" src="music/Orbis.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music23" src="music/Pantheon.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music24" src="music/Perion.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music25" src="music/Rien.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+<audio id="music26" src="music/Sleepywood.mp3" type="audio/mp3"preload="auto">Your browser does not support the <code>audio</code> element.</audio>
+
+<script type="text/javascript">
+
+var musicID = -1;
+var input = document.forms["Form"]["answer"].value;
+
+function rightOrWrong(result){
+	var correct = document.getElementById("correctAnswer");
+	var wrong = document.getElementById("wrongAnswer");
+	
+	if(result == 1){
+		correctAnswer.style.display="block";
+		wrongAnswer.style.display="none";
+		answerWas.style.display="none";
+		realAnswer.style.display="none";
+		youEntered.style.display="none";
+		enter.style.display="none";
+	} else if(result == 2){
+		correctAnswer.style.display="none";
+		wrongAnswer.style.display="block";
+		answerWas.style.display="block";
+		document.getElementById('realAnswer').textContent =musicName[musicID];
+		realAnswer.style.display="block";
+		youEntered.style.display="block";
+		input = document.forms["Form"]["answer"].value;
+		document.getElementById('enter').textContent =input;
+		enter.style.display="block";
+	} else {
+		correctAnswer.style.display="none";
+		wrongAnswer.style.display="block";
+		answerWas.style.display="block";
+		document.getElementById('realAnswer').textContent =musicName[musicID];
+		realAnswer.style.display="block";
+		youEntered.style.display="block";
+		input = document.forms["Form"]["answer"].value;
+		document.getElementById('enter').textContent ="Nothing :(";
+		enter.style.display="block";
+	}
+}
+
+function onClick() {
+	var result = 0;
+	var sounds = document.getElementsByTagName('audio');
+    for(i=0; i<sounds.length; i++){
+		sounds[i].pause()
+		sounds[i].currentTime=0
+	};
+	input = document.forms["Form"]["answer"].value;
+	if(document.forms["Form"]["answer"] == null || document.forms["Form"]["answer"] == "" || input == null || input == ""){
+		result = 0	
+	} else if(input === musicName[musicID]){
+		result = 1
+	} else{
+		result = 2
+		ra=musicName[musicID]
+	}
+	
+	rightOrWrong(result);
+	randomBGM();
+	document.getElementById("answer").value="";
+}
+
+musicArray = 	['music1','music2','music3','music4','music5','music6','music7','music8','music9','music10',
+				'music11','music12','music13','music14','music15','music16','music17','music18','music19',
+				'music20','music21','music22','music23','music24','music25','music26'];
+musicName  =	['Aquarium','Ariant','Edelstein','El Nath','Ellinia','Elluel','Ereve','Fox Point Village','Heliseum Reclamation HQ','Henesys',
+				'Herb Town','Kerning City','Korean Folk Town','Leafre','Lith Harbor','Ludibrium','Lumiere','Magatia','Mu Lung','Nautilus',
+				'Omega Sector','Orbis','Pantheon','Perion','Rien','Sleepywood'];
+function randomBGM() {	
+	var sounds = document.getElementsByTagName('audio');
+    for(i=0; i<sounds.length; i++){
+		sounds[i].pause()
+		sounds[i].currentTime=0
+	};
+	var index = Math.floor(Math.random() * 1000) % musicArray.length;
+	var play = musicArray[index];
+	musicID = index;
+	var audioElement = document.getElementById(play);
+	audioElement.play();
+}
+
+function stop() {
+	var sounds = document.getElementsByTagName('audio');
+    for(i=0; i<sounds.length; i++){
+		sounds[i].pause()
+		sounds[i].currentTime=0
+	};
+}
+
+</script>
+
+</body>
+</html>

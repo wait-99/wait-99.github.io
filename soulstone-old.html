@@ -27,7 +27,9 @@ Enter the costs in dz of each type of fragment.
 Click outside of any table to update numbers.
 <br />
 <br />
-Created by: Natt#7777 (Discord)
+Created by: Natty @ Tenebris
+<br />
+Discord: Natt#7777
 </div>
 
 
@@ -35,18 +37,6 @@ Created by: Natt#7777 (Discord)
 <div style="padding-top:35px">
 
 <table align=center style="text-align:center; border: 1px solid black; width: 300 px;margin-bottom:15px; padding:8px">
-<tr>
-<td>
-<strong>Stone Type</strong>
-</td>
-<td>
-<select onblur="cost()" id="sstype">
-<option>Select</option>
-<option value="1">Normal</option>
-<option value="2">Slumbering</option>
-</select>
-</td>
-</tr>
 <tr>
 <td>
 <strong>From Level:</strong>
@@ -204,8 +194,7 @@ Refineds Cost:
 
 </div>
 
-<h3 style="text-align: center">Regular Soulstone Stats and Costs</h3>
-<div style="text-align: center">I'm too lazy to make a table for slumberings, nobody needs it anyways. 
+<h3 style="text-align: center">Soulstone Stats and Costs</h3>
 
 <div style="display:flex; justify-content:center;margin">
 
@@ -574,200 +563,98 @@ function cost(){
 	var toRefined = 0;
 	var toDzenai = 0;
 	
-	var stonetype = document.getElementById('sstype').value;
-	if(stonetype == 1) {
-		switch(document.getElementById('fromlevel').value) {
-			case "1": 
-				break;
-			case "2":
-				fromInferior = 24;
-				fromDzenai = 160000;
-				break;
-			case "3":
-				fromInferior = 64;
-				fromCommon = 1;
-				fromDzenai = 480000;
-				break;
-			case "4":
-				fromInferior = 104;
-				fromCommon = 4;
-				fromRefined = 1;
-				fromDzenai = 1040000;
-				break;
-			case "5":
-				fromInferior = 144;
-				fromCommon = 8;
-				fromRefined = 3;
-				fromDzenai = 1840000;
-				break;
-			case "6":
-				fromInferior = 224;
-				fromCommon = 15;
-				fromRefined = 6;
-				fromDzenai = 2960000;
-				break;
-			case "7":
-				fromInferior = 304;
-				fromCommon = 23;
-				fromRefined = 10;
-				fromDzenai = 4560000;
-				break;
-			case "8":
-				fromInferior = 464;
-				fromCommon = 39;
-				fromRefined = 18;
-				fromDzenai = 6720000;
-				break;
-				
-		}
-		
-		switch(document.getElementById('tolevel').value) {
-			case "2":
-				toInferior = 24;
-				toDzenai = 160000;
-				break;
-			case "3":
-				toInferior = 64;
-				toCommon = 1;
-				toDzenai = 480000;
-				break;
-			case "4":
-				toInferior = 104;
-				toCommon = 4;
-				toRefined = 1;
-				toDzenai = 1040000;
-				break;
-			case "5":
-				toInferior = 144;
-				toCommon = 8;
-				toRefined = 3;
-				toDzenai = 1840000;
-				break;
-			case "6":
-				toInferior = 224;
-				toCommon = 15;
-				toRefined = 6;
-				toDzenai = 2960000;
-				break;
-			case "7":
-				toInferior = 304;
-				toCommon = 23;
-				toRefined = 10;
-				toDzenai = 4560000;
-				break;
-			case "8":
-				toInferior = 464;
-				toCommon = 39;
-				toRefined = 18;
-				toDzenai = 6720000;
-				break;
-			case "9":
-				toInferior = 704;
-				toCommon = 63;
-				toRefined = 34;
-				toDzenai = 9520000;
-				break;			
-		}
-	} else if (stonetype == 2) {
-		switch(document.getElementById('fromlevel').value) {
-			case "1": 
-				break;
-			case "2":
-				fromInferior = 36;
-				fromDzenai = 240000;
-				break;
-			case "3":
-				fromInferior = 81;
-				fromCommon = 3;
-				fromDzenai = 720000;
-				break;
-			case "4":
-				fromInferior = 146;
-				fromCommon = 12;
-				fromRefined = 1;
-				fromDzenai = 1560000;
-				break;
-			case "5":
-				fromInferior = 216;
-				fromCommon = 17;
-				fromRefined = 4;
-				fromDzenai = 2760000;
-				break;
-			case "6":
-				fromInferior = 301;
-				fromCommon = 26;
-				fromRefined = 9;
-				fromDzenai = 4440000;
-				break;
-			case "7":
-				fromInferior = 411;
-				fromCommon = 39;
-				fromRefined = 15;
-				fromDzenai = 6840000;
-				break;
-			case "8":
-				fromInferior = 541;
-				fromCommon = 64;
-				fromRefined = 28;
-				fromDzenai = 10080000;
-				break;
-				
-		}
-		
-		switch(document.getElementById('tolevel').value) {
-			case "2":
-				toInferior = 36;
-				toDzenai = 240000;
-				break;
-			case "3":
-				toInferior = 81;
-				toCommon = 3;
-				toDzenai = 720000;
-				break;
-			case "4":
-				toInferior = 146;
-				toCommon = 12;
-				toRefined = 1;
-				toDzenai = 1560000;
-				break;
-			case "5":
-				toInferior = 216;
-				toCommon = 17;
-				toRefined = 4;
-				toDzenai = 2760000;
-				break;
-			case "6":
-				toInferior = 301;
-				toCommon = 26;
-				toRefined = 9;
-				toDzenai = 4440000;
-				break;
-			case "7":
-				toInferior = 411;
-				toCommon = 39;
-				toRefined = 15;
-				toDzenai = 6840000;
-				break;
-			case "8":
-				toInferior = 541;
-				toCommon = 64;
-				toRefined = 28;
-				toDzenai = 10080000;
-				break;
-			case "9":
-				toInferior = 711;
-				toCommon = 99;
-				toRefined = 54;
-				toDzenai = 14280000;
-				break;			
-		}
-	}else { 
-		toInferior = 0;
-		toCommon = 0;
-		toRefined = 0;
-		toDzenai = 0;
+	switch(document.getElementById('fromlevel').value) {
+		case "1": 
+			break;
+		case "2":
+			fromInferior = 24;
+			fromDzenai = 160000;
+			break;
+		case "3":
+			fromInferior = 64;
+			fromCommon = 1;
+			fromDzenai = 480000;
+			break;
+		case "4":
+			fromInferior = 104;
+			fromCommon = 4;
+			fromRefined = 1;
+			fromDzenai = 1040000;
+			break;
+		case "5":
+			fromInferior = 144;
+			fromCommon = 8;
+			fromRefined = 3;
+			fromDzenai = 1840000;
+			break;
+		case "6":
+			fromInferior = 224;
+			fromCommon = 15;
+			fromRefined = 6;
+			fromDzenai = 2960000;
+			break;
+		case "7":
+			fromInferior = 304;
+			fromCommon = 23;
+			fromRefined = 10;
+			fromDzenai = 4560000;
+			break;
+		case "8":
+			fromInferior = 464;
+			fromCommon = 39;
+			fromRefined = 18;
+			fromDzenai = 6720000;
+			break;
+			
 	}
 	
+	switch(document.getElementById('tolevel').value) {
+		case "2":
+			toInferior = 24;
+			toDzenai = 160000;
+			break;
+		case "3":
+			toInferior = 64;
+			toCommon = 1;
+			toDzenai = 480000;
+			break;
+		case "4":
+			toInferior = 104;
+			toCommon = 4;
+			toRefined = 1;
+			toDzenai = 1040000;
+			break;
+		case "5":
+			toInferior = 144;
+			toCommon = 8;
+			toRefined = 3;
+			toDzenai = 1840000;
+			break;
+		case "6":
+			toInferior = 224;
+			toCommon = 15;
+			toRefined = 6;
+			toDzenai = 2960000;
+			break;
+		case "7":
+			toInferior = 304;
+			toCommon = 23;
+			toRefined = 10;
+			toDzenai = 4560000;
+			break;
+		case "8":
+			toInferior = 464;
+			toCommon = 39;
+			toRefined = 18;
+			toDzenai = 6720000;
+			break;
+		case "9":
+			toInferior = 704;
+			toCommon = 63;
+			toRefined = 34;
+			toDzenai = 9520000;
+			break;			
+	}
 	
 	
 	
