@@ -9,7 +9,7 @@
       href="https://i.imgur.com/Wgd1GEa.png">
 
 </head>
-<body>
+<body style="font-family:verdana">
 
 <div align=center style="padding-left:8px;">
 
@@ -17,7 +17,7 @@
 <div align=center style="width:400px; padding-bottom:10px; padding-top:0px;">
 
 <h1>
-Maplestory Tower of Oz:
+Maplestory<br />Tower of Oz:
 <br />
 Floor 24 Music Test
 </h1>
@@ -30,6 +30,9 @@ Type in the name and see if you get it right! Remember, <b>Capitalization Matter
 Created by: Natt#7777 (Discord)
 <br />
 <br />
+<div align=center style="padding-left:8px;">
+<p style="font-size:8px">Music © Copyright Wizet, Nexon</p>
+</div>
 
 
 </div>
@@ -38,19 +41,19 @@ Created by: Natt#7777 (Discord)
 
 <table align=center style="text-align:center; border: 1px solid black; width: 300 px;margin-bottom:15px; padding:8px">
 <tr>
-<td>
+<td colspan=2>
 What's the name of the BGM?
 </td>
 </tr>
 <tr>
-<td>
+<td colspan=2>
 <button onclick="randomBGM()">Play!</button>
 <button onclick="stop()">Stop!</button>
 <hr/>
 </td>
 </tr>
 <tr>
-<td>
+<td colspan=2>
 <form name="Form" action="#" onsubmit="onClick();return false">
 BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
 <input type=submit />
@@ -59,7 +62,7 @@ BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
 </td>
 </tr>
 <tr>
-<td>
+<td colspan=2>
 <h2 style="color:green;display:none" id="correctAnswer">Correct!</h3>
 <h2 style="color:red;display:none" id="wrongAnswer">Wrong!<br />5 mins gone!<br /></h3>
 <h3 style="display:none" id="answerWas">The BGM was:</h3>
@@ -68,13 +71,17 @@ BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
 <p style="display:none" id="enter"></p>
 </td>
 </tr>
+<tr>
+<td colspan=2>
+<hr/><h4>Your Score:</h4></td>
+</tr>
+<tr>
+<td>Correct:<h3 id="correct" style=color:green>0</h3></td>
+<td>Wrong:<h3 id="wrong" style=color:red>0</h3></td>
+</tr>
 
 </div>
 </table>
-<br /><br /><br /><br /><br />
-<div align=center style="padding-left:8px;">
-<p style="font-size:8px">Music © Copyright Wizet, Nexon</p>
-</div>
 
 <div style="display:none" id="musicBox"></div>
 
@@ -83,12 +90,19 @@ BGM: <input type=text id="answer" autocomplete="off" /><br /><br />
 var musicID = -1;
 var input = document.forms["Form"]["answer"].value;
 var lastIndex = -1;
+var lastIndex2 = -1;
+var lastIndex3 = -1;
+var lastIndex4 = -1;
+var correctScore = 0;
+var wrongScore = 0;
 
 function rightOrWrong(result){
 	var correct = document.getElementById("correctAnswer");
 	var wrong = document.getElementById("wrongAnswer");
 	
 	if(result == 1){
+		correctScore++;
+		document.getElementById('correct').textContent=correctScore;		
 		correctAnswer.style.display="block";
 		wrongAnswer.style.display="none";
 		answerWas.style.display="none";
@@ -96,6 +110,8 @@ function rightOrWrong(result){
 		youEntered.style.display="none";
 		enter.style.display="none";
 	} else if(result == 2){
+		wrongScore++;
+		document.getElementById('wrong').textContent=wrongScore;
 		correctAnswer.style.display="none";
 		wrongAnswer.style.display="block";
 		answerWas.style.display="block";
@@ -145,96 +161,100 @@ function randomBGM() {
 	
 	
 	var index = Math.floor(Math.random() * 1000) % musicArray.length;
-	while (index == lastIndex){
+	while (index == lastIndex || index == lastIndex2 || index == lastIndex3 || index == lastIndex4){
 		index = Math.floor(Math.random() * 1000) % musicArray.length;
 	}
 	var play = musicArray[index];
 	musicID = index;
+	lastIndex4 = lastIndex3;
+	lastIndex3 = lastIndex2;
+	lastIndex2 = lastIndex;
 	lastIndex = index;
 	
 	switch(index) {
 		case 0: //Aquarium
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/embed/qtw0sIBLjrw?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/qtw0sIBLjrw?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 1: //Ariant
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=w1RgDSoOajw?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/w1RgDSoOajw?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 2: //Edelstein
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=Iayh6shDnwQ?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/Iayh6shDnwQ?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 3: //El Nath
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=X6X7U5V9Obk?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/X6X7U5V9Obk?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 4: //Ellinia
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=gfgBDs8z6WE?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/gfgBDs8z6WE?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 5: //Elluel
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=5gxVQPSbkJw?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/5gxVQPSbkJw?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 6: //Ereve
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=3r9s43TG9yA?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/3r9s43TG9yA?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 7: //Fox Point Village
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=lorm88ckSuM?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/lorm88ckSuM?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 8: //Heliseum Reclamation HQ
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=CuoeZkWgDjk?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/CuoeZkWgDjk?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 9: //Henesys
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=s2_MAplvHeQ?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/s2_MAplvHeQ?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 10: //Herb Town
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=59oze7IkQ10?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/59oze7IkQ10?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 11: //Kerning City
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=uv8QObpL2EY?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/uv8QObpL2EY?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 12: //Korean Folk Town
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=KK_IjvtszTA?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/KK_IjvtszTA?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 13: //Leafre
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=theIdIhZzVE?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/theIdIhZzVE?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 14: //Lith Harbor
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=F6LIFBVhObQ?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/F6LIFBVhObQ?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 15: //Ludibrium
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=49AZqVhXVeU?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/49AZqVhXVeU?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 16: //Lumiere
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=ZpVpjZJyDJA?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/ZpVpjZJyDJA?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 17: //Magatia
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=5FDFLwPw0bU?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/5FDFLwPw0bU?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 18: //Mu Lung
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=2VMCpGe9MGc?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/2VMCpGe9MGc?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 19: //Nautilus
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=iZaVKkfuD6s?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/iZaVKkfuD6s?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 20: //Omega Sector
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=LxQt8EVhBOs?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/LxQt8EVhBOs?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 21: //Orbis
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=DThWMbPZXy8?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/DThWMbPZXy8?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 22: //Pantheon
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=ZYeUnqsCnxg?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/ZYeUnqsCnxg?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 23: //Perion
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=9lwOsX763N0?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/9lwOsX763N0?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 24: //Rien
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=YDfIfL_Fxec?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/YDfIfL_Fxec?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		case 25: //Sleepywood
-			document.getElementById("musicBox").innerHTML = "<iframe width=300 height=300 src=https://www.youtube.com/watch?v=tWCWIhA3XQw?autoplay=1 allow='autoplay'></iframe>" 
+			document.getElementById("musicBox").innerHTML = "<iframe width=500 height=300 src=https://www.youtube.com/embed/tWCWIhA3XQw?autoplay=1 allow='autoplay'></iframe>" 
 			break;
 		default:
 			document.getElementById("musicBox").innerHTML = "" 
 			break;
 	}
+			document.getElementById("answerWas").textContet = index;
 }
 
 function stop() {
